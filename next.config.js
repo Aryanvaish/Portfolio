@@ -9,6 +9,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
   async headers() {
     return [
       {
@@ -21,6 +22,10 @@ const nextConfig = {
           {
             key: 'Content-Disposition',
             value: 'inline; filename="aryan_vaish_resume.pdf"',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable', 
           },
         ],
       },

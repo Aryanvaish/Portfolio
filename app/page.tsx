@@ -150,7 +150,7 @@ export default function Portfolio() {
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <Image
-                  src="/profile-aryan.jpg"
+                  src="/profile-picture.jpg"
                   alt="Aryan Vaish"
                   width={600}
                   height={600}
@@ -207,7 +207,7 @@ export default function Portfolio() {
 
                 <div className="mt-8">
                   <Link
-                    href="/aryan_vaish_resume.pdf"
+                    href="/aryan_vaish_resume.pdf?v2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
