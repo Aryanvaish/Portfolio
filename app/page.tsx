@@ -148,7 +148,7 @@ export default function Portfolio() {
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <Image
-                  src="/profile-aryan.jpg"
+                  src="/profile-aryan.jpeg"
                   alt="Aryan Vaish"
                   width={600}
                   height={600}
@@ -293,7 +293,7 @@ export default function Portfolio() {
                   { name: "Postman", icon: "tools_icons/postman.svg" },
                   { name: "VS Code", icon: "tools_icons/vscode.svg" },
                 ].map((tool) => (
-                  <div
+                  <div 
                     key={tool.name}
                     className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] w-44 h-44 sm:w-48 sm:h-48"
                   >

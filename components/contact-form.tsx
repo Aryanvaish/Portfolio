@@ -1,7 +1,5 @@
 "use client";
 
-import type React from "react";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
@@ -14,21 +12,52 @@ import { useToast } from "@/hooks/use-toast";
 export function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
+      const data = await res.json();
 
-    setIsSubmitting(false);
-    e.currentTarget.reset();
+      if (data.success) {
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Unable to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -45,48 +74,46 @@ export function ContactForm() {
           <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Input
-                placeholder="Your Name"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Input
-                type="email"
-                placeholder="Your Email"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Input
-                placeholder="Subject"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Textarea
-                placeholder="Your Message"
-                rows={5}
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
+            <Input
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
+            <Input
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
+            <Input
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
+            <Textarea
+              name="message"
+              placeholder="Your Message"
+              rows={5}
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
             <Button
               type="submit"
               className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
               disabled={isSubmitting}
             >
-              {isSubmitting ? (
-                <>Sending...</>
-              ) : (
-                <>
-                  Send Message <Send className="ml-2 h-4 w-4" />
-                </>
-              )}
+              {isSubmitting ? "Sending..." : <>Send Message <Send className="ml-2 h-4 w-4" /></>}
             </Button>
           </form>
         </div>
