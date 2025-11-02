@@ -31,11 +31,13 @@ export default function Portfolio() {
         <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="inline-block">
-              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-                <span className="relative z-10">
+
+              <div className="relative lg:w-fit w-[280px] lg:mt-0 mt-7 px-4 py-2 text-lg font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 sm:max-w-none sm:px-6 sm:py-2 text-left">
+                <span className="relative z-10 block text-xs sm:text-sm leading-snug">
                   Creating Web Experiences that Connect, Engage, and Inspire.
                 </span>
               </div>
+
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
               <span className="block">Hi, I'm</span>
@@ -132,7 +134,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="lg:py-20 py-16 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -148,7 +150,7 @@ export default function Portfolio() {
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <Image
-                  src="/profile-aryan.jpeg"
+                  src="/profile-aryan.jpg"
                   alt="Aryan Vaish"
                   width={600}
                   height={600}
@@ -179,7 +181,9 @@ export default function Portfolio() {
                 <p className="text-lg text-zinc-300 mt-4">
                   I’m eager to collaborate on meaningful projects that challenge me to grow and build seamless, performance-driven solutions with precision and purpose.
                 </p>
-                <div className="grid grid-cols-2 gap-4 mt-8">
+
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Name</div>
                     <div className="font-medium">Aryan Vaish</div>
@@ -200,6 +204,7 @@ export default function Portfolio() {
                   </div>
                 </div>
 
+
                 <div className="mt-8">
                   <Link
                     href="/aryan_vaish_resume.pdf"
@@ -218,7 +223,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 relative">
+      <section id="skills" className="lg:py-20 py-16 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -251,7 +256,7 @@ export default function Portfolio() {
                 ].map((skill) => (
                   <div
                     key={skill.name}
-                    className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden w-52 h-52 transition-all duration-500 hover:scale-110"
+                    className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden lg:w-52 lg:h-52 w-44 h-44 transition-all duration-500 hover:scale-110"
                   >
                     {/* Hover glow effect */}
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-300"></div>
@@ -293,7 +298,7 @@ export default function Portfolio() {
                   { name: "Postman", icon: "tools_icons/postman.svg" },
                   { name: "VS Code", icon: "tools_icons/vscode.svg" },
                 ].map((tool) => (
-                  <div 
+                  <div
                     key={tool.name}
                     className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] w-44 h-44 sm:w-48 sm:h-48"
                   >
@@ -327,7 +332,7 @@ export default function Portfolio() {
 
 
       {/* Projects Section */}
-      {/* <section id="projects" className="py-20 relative">
+      {/* <section id="projects" className="lg:py-20 py-16 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -360,7 +365,7 @@ export default function Portfolio() {
       </section> */}
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 relative">
+      <section id="experience" className="lg:py-20 py-16 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -378,7 +383,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 relative">
+      <section id="contact" className="lg:py-20 py-16 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -473,19 +478,19 @@ export default function Portfolio() {
 
       {/* Footer */}
       <footer className="w-full text-center py-4 mt-6 mb-5 text-xs text-gray-500 font-light flex flex-col items-center gap-1">
-            <span className="flex items-center gap-1">
-                Created by
-                <a href="https://github.com/Aryanvaish" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-gray-400 hover:text-gray-200 transition-colors">
-                    Aryan Vaish
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" >
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.11.82-.26.82-.577v-2.2c-3.338.726-4.033-1.416-4.033-1.416-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.42-1.304.763-1.604-2.665-.304-5.466-1.333-5.466-5.932 0-1.31.467-2.382 1.235-3.222-.124-.303-.536-1.527.117-3.176 0 0 1.008-.323 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.288-1.553 3.293-1.23 3.293-1.23.655 1.649.243 2.873.12 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.805 5.625-5.476 5.921.431.372.815 1.102.815 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.296 24 12c0-6.63-5.373-12-12-12z" />
-                    </svg>
-                </a>
-            </span>
-            <span className="text-[10px] text-gray-400">
-                © {new Date().getFullYear()} Aryan's Portfolio. All rights reserved.
-            </span>
-        </footer>
+        <span className="flex items-center gap-1">
+          Created by
+          <a href="https://github.com/Aryanvaish" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-gray-400 hover:text-gray-200 transition-colors">
+            Aryan Vaish
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" >
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.11.82-.26.82-.577v-2.2c-3.338.726-4.033-1.416-4.033-1.416-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.42-1.304.763-1.604-2.665-.304-5.466-1.333-5.466-5.932 0-1.31.467-2.382 1.235-3.222-.124-.303-.536-1.527.117-3.176 0 0 1.008-.323 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.288-1.553 3.293-1.23 3.293-1.23.655 1.649.243 2.873.12 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.805 5.625-5.476 5.921.431.372.815 1.102.815 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.296 24 12c0-6.63-5.373-12-12-12z" />
+            </svg>
+          </a>
+        </span>
+        <span className="text-[10px] text-gray-400">
+          © {new Date().getFullYear()} Aryan's Portfolio. All rights reserved.
+        </span>
+      </footer>
 
 
     </div>

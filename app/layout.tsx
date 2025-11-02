@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Aryan's portfolio</title>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.svg" type="image/png" />
       </head>
       <body>{children}</body>
     </html>
