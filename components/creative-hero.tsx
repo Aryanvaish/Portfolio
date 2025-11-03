@@ -13,35 +13,36 @@ export function CreativeHero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let devicePixelRatio: number;
+    const cvs = canvas!;
+    const context = ctx!;
 
-    // Set canvas dimensions
+    let devicePixelRatio: number;
+    let gridSize: number;
+
     const setCanvasDimensions = () => {
       devicePixelRatio = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
+      const rect = cvs.getBoundingClientRect();
 
-      canvas.width = rect.width * devicePixelRatio;
-      canvas.height = rect.height * devicePixelRatio;
+      cvs.width = rect.width * devicePixelRatio;
+      cvs.height = rect.height * devicePixelRatio;
 
-      ctx.scale(devicePixelRatio, devicePixelRatio);
+      context.scale(devicePixelRatio, devicePixelRatio);
     };
 
     setCanvasDimensions();
     window.addEventListener("resize", setCanvasDimensions);
 
-    // Mouse position
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
 
     window.addEventListener("mousemove", (e) => {
-      const rect = canvas.getBoundingClientRect();
+      const rect = cvs.getBoundingClientRect();
       targetX = e.clientX - rect.left;
       targetY = e.clientY - rect.top;
     });
 
-    // Particle class
     class Particle {
       x: number;
       y: number;
@@ -57,17 +58,15 @@ export function CreativeHero() {
         this.y = y;
         this.baseX = x;
         this.baseY = y;
-        this.size = Math.random() * 5 + 2;
+        this.size = Math.random() * 4 + 1.5;
         this.density = Math.random() * 30 + 1;
         this.distance = 0;
 
-        // Create a gradient from purple to pink
-        const hue = Math.random() * 60 + 270; // 270-330 range for purples and pinks
+        const hue = Math.random() * 60 + 270;
         this.color = `hsl(${hue}, 70%, 60%)`;
       }
 
       update() {
-        // Calculate distance between mouse and particle
         const dx = mouseX - this.x;
         const dy = mouseY - this.y;
         this.distance = Math.sqrt(dx * dx + dy * dy);
@@ -97,24 +96,26 @@ export function CreativeHero() {
       }
 
       draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
+        context.fillStyle = this.color;
+        context.beginPath();
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.closePath();
+        context.fill();
       }
     }
 
-    // Create particle grid
     const particlesArray: Particle[] = [];
-    const particleCount = 1000;
-    const gridSize = 30;
 
     function init() {
       particlesArray.length = 0;
 
-      const canvasWidth = canvas.width / devicePixelRatio;
-      const canvasHeight = canvas.height / devicePixelRatio;
+      const width = window.innerWidth;
+      if (width < 500) gridSize = 35;
+      else if (width < 900) gridSize = 28;
+      else gridSize = 25;
+
+      const canvasWidth = cvs.width / devicePixelRatio;
+      const canvasHeight = cvs.height / devicePixelRatio;
 
       const numX = Math.floor(canvasWidth / gridSize);
       const numY = Math.floor(canvasHeight / gridSize);
@@ -130,32 +131,28 @@ export function CreativeHero() {
 
     init();
 
-    // Animation loop
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0, 0, cvs.width, cvs.height);
 
-      // Smooth mouse following
       mouseX += (targetX - mouseX) * 0.1;
       mouseY += (targetY - mouseY) * 0.1;
 
-      // Draw connections
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
         particlesArray[i].draw();
 
-        // Draw connections
         for (let j = i; j < particlesArray.length; j++) {
           const dx = particlesArray[i].x - particlesArray[j].x;
           const dy = particlesArray[i].y - particlesArray[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 30) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(180, 120, 255, ${0.2 - distance / 150})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-            ctx.stroke();
+            context.beginPath();
+            context.strokeStyle = `rgba(180, 120, 255, ${0.15 - distance / 150})`;
+            context.lineWidth = 0.4;
+            context.moveTo(particlesArray[i].x, particlesArray[i].y);
+            context.lineTo(particlesArray[j].x, particlesArray[j].y);
+            context.stroke();
           }
         }
       }
@@ -165,7 +162,6 @@ export function CreativeHero() {
 
     animate();
 
-    // Handle window resize
     window.addEventListener("resize", init);
 
     return () => {

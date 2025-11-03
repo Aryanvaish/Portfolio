@@ -158,7 +158,7 @@ export default function Portfolio() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
-                  <div className="flex items-center gap-2">
+                  <div className="flex lg:items-center items-start gap-2">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                     <span className="text-sm font-medium">
                       Available for work
@@ -207,7 +207,7 @@ export default function Portfolio() {
 
                 <div className="mt-8">
                   <Link
-                    href="/aryan_vaish_resume.pdf?v2"
+                    href="/aryan_vaish_resume.pdf?v3"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -300,18 +300,25 @@ export default function Portfolio() {
                 ].map((tool) => (
                   <div
                     key={tool.name}
-                    className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] w-44 h-44 sm:w-48 sm:h-48"
+                    className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden lg:w-52 lg:h-52 w-44 h-44 transition-all duration-500 hover:scale-110"
                   >
-                    <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-md bg-zinc-800/80 p-3">
-                      <img
-                        src={tool.icon}
-                        alt={tool.name}
-                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                      />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-300"></div>
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-md bg-zinc-800/80 p-3">
+                        <img
+                          src={tool.icon}
+                          alt={tool.name}
+                          className={`w-full h-full object-contain transition-transform duration-300 group-hover:scale-110
+                ${tool.name === "GitHub" || tool.name === "Vercel"
+                              ? "invert brightness-0"
+                              : ""
+                            }`}
+                        />
+                      </div>
+                      <p className="text-zinc-200 text-center text-sm sm:text-base font-medium">
+                        {tool.name}
+                      </p>
                     </div>
-                    <p className="text-zinc-200 text-center text-sm sm:text-base font-medium">
-                      {tool.name}
-                    </p>
                   </div>
                 ))}
               </div>
@@ -319,16 +326,6 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
-
-
-
-
-
-
-
-
-
 
 
       {/* Projects Section */}
@@ -383,98 +380,74 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="lg:py-20 py-16 relative">
+      <section id="contact" className="lg:py-20 py-16 pb-0 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
-
         <div className="container relative z-10">
           <SectionHeading title="Get In Touch" />
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <GlassmorphicCard>
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <SiGmail className="h-5 w-5" />
+                {[
+                  {
+                    name: "Email",
+                    icon: <SiGmail className="h-5 w-5 text-zinc-200" />,
+                    href: "mailto:aryanvaish144@gmail.com",
+                    label: "aryanvaish144@gmail.com",
+                  },
+                  {
+                    name: "LinkedIn",
+                    icon: <SiLinkedin className="h-5 w-5 text-zinc-200 scale-110" />, // scaled for balance
+                    href: "https://www.linkedin.com/in/aryan-vaish-3758b3262/",
+                    label: "linkedin.com/in/aryan-vaish-3758b3262",
+                  },
+                  {
+                    name: "GitHub",
+                    icon: <SiGithub className="h-5 w-5 text-zinc-200" />,
+                    href: "https://github.com/Aryanvaish",
+                    label: "github.com/Aryanvaish",
+                  },
+                  {
+                    name: "Twitter",
+                    icon: <SiX className="h-5 w-5 text-zinc-200" />,
+                    href: "https://x.com/AryanVaish",
+                    label: "x.com/AryanVaish",
+                  },
+                ].map((item) => (
+                  <div key={item.name} className="flex items-center gap-4">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-zinc-800 shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="text-sm text-zinc-500">{item.name}</div>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium hover:underline break-all"
+                      >
+                        {item.label}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-sm text-zinc-500">Email</div>
-                    <a
-                      href="mailto:aryanvaish144@gmail.com"
-                      className="font-medium hover:underline"
-                    >
-                      aryanvaish144@gmail.com
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <SiLinkedin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <a
-                      href="https://www.linkedin.com/in/aryan-vaish-3758b3262/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium hover:underline"
-                    >
-                      linkedin.com/in/aryan-vaish-3758b3262
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <SiGithub className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-zinc-500">GitHub</div>
-                    <a
-                      href="https://github.com/Aryanvaish"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium hover:underline"
-                    >
-                      github.com/Aryanvaish
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <SiX className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-zinc-500">Twitter</div>
-                    <a
-                      href="https://x.com/AryanVaish"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium hover:underline"
-                    >
-                      x.com/AryanVaish
-                    </a>
-                  </div>
-                </div>
+                ))}
               </div>
-
               <div className="mt-8 pt-8 border-t border-zinc-800">
                 <h4 className="text-lg font-medium mb-4">Current Status</h4>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                  <span>
-                    Available for freelance work and full-time opportunities
-                  </span>
+                <div className="flex lg:items-center items-start gap-2">
+                  <div className="w-3 min-w-3 h-3 lg:mt-0 mt-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                  <span>Available for freelance work and full-time opportunities</span>
                 </div>
               </div>
             </GlassmorphicCard>
-
             <ContactForm />
           </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="w-full text-center py-4 mt-6 mb-5 text-xs text-gray-500 font-light flex flex-col items-center gap-1">

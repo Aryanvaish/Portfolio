@@ -5,18 +5,18 @@ import { useMobile } from "@/hooks/use-mobile";
 
 const experiences = [
   {
-    title: "Frontend Developer Intern",
-    company: "The Indian Express, Noida",
-    period: "Nov 2022 - Nov 2023",
-    description:
-      "Assisted in developing responsive UI components and optimizing web pages for speed and accessibility. Collaborated with senior developers to maintain and enhance the Financial Express and B2B platforms using React.js and Tailwind CSS.",
-  },
-  {
     title: "Software Engineer",
     company: "The Indian Express, Noida",
     period: "Nov 2023 - Present",
     description:
       "Developing and maintaining large-scale, high-traffic web platforms like Financial Express and FE B2B using React.js, Next.js, and TypeScript. Improved site performance, SEO, and accessibility while implementing modern UI/UX patterns and reusable components.",
+  },
+  {
+    title: "Frontend Developer Intern",
+    company: "The Indian Express, Noida",
+    period: "Nov 2022 - Nov 2023",
+    description:
+      "Assisted in developing responsive UI components and optimizing web pages for speed and accessibility. Collaborated with senior developers to maintain and enhance the Financial Express and B2B platforms using React.js and Tailwind CSS.",
   },
 ];
 
