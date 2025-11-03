@@ -207,7 +207,7 @@ export default function Portfolio() {
 
                 <div className="mt-8">
                   <Link
-                    href="/aryan_vaish_resume.pdf?v3"
+                    href="/aryan_vaish_resume.pdf?v4"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
