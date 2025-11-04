@@ -134,7 +134,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="lg:py-20 py-16 relative">
+      <section id="about" className="lg:py-20 py-14 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -223,7 +223,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="lg:py-20 py-16 relative">
+      <section id="skills" className="lg:py-20 py-14 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -329,40 +329,68 @@ export default function Portfolio() {
 
 
       {/* Projects Section */}
-      {/* <section id="projects" className="lg:py-20 py-16 relative">
+      <section id="projects" className="lg:py-20 py-14 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading
-            title="Featured Projects"
-          />
+          <SectionHeading title="Featured Projects" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            <ProjectCard
-              title="Heuristic Evaluation on Snapchat"
-              description="A usability audit of Snapchat based on Nielsen's 10 Usability Heuristics with improvement suggestions and UI references."
-              tags={["Figma", "Notion", "ChatGPT"]}
-              image="/snapchat-cover.png"
-              demoUrl="https://www.behance.net/gallery/209069463/Heuristic-Evaluation-on-Snapchat"
-            />
-            <ProjectCard
-              title="Heuristic Evaluation on WhatsApp"
-              description="A usability audit of WhatsApp using Nielsen's Heuristics — appreciated for its clear structure, practical UI suggestions.
-
-"
-              tags={["Figma", "Notion", "ChatGPT"]}
-              image="/Whatsapp-cover.png"
-              demoUrl="https://www.behance.net/gallery/209069463/Heuristic-Evaluation-on-Snapchat"
-            />
+            {[
+              {
+                title: "Financial Express — Events Platform",
+                description:
+                  "Delivered high-quality event websites with exceptional performance, accessibility, enhancing overall audience engagement.",
+                tags: ["JavaScript", "jQuery", "HTML", "Bootstrap"],
+                image: "/projects/fe-events.jpeg",
+                demoUrl: "https://www.financialexpress.com/events/",
+              },
+              {
+                title: "FE B2B - Business Verticals",
+                description:
+                  "Built a scalable B2B portal featuring intuitive design, smooth navigation, and enhanced performance for business audiences.",
+                tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+                image: "/projects/feb2b.png",
+                demoUrl: "https://www.financialexpressb2b.com/",
+              },
+              {
+                title: "MoviesFlix",
+                description:
+                  "Developed an interactive movie discovery app powered by JavaScript, enabling users to explore trending titles with a clean, responsive UI.",
+                tags: ["JavaScript", "HTML", "CSS"],
+                image: "/projects/moviesflix.jpeg",
+                demoUrl: "https://aryanvaish-moviesflix.vercel.app/",
+              },
+              {
+                title: "BMI Calculator",
+                description:
+                  "Built an interactive BMI calculator with dynamic result computation and a responsive, accessible interface.",
+                tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+                image: "/projects/bmi.png",
+                demoUrl: "https://aryanvaish-bmi-calculator.vercel.app/",
+              },
+            ].map((project) => (
+              <div key={project.title} className="flex flex-col h-full">
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags}
+                  image={project.image}
+                  demoUrl={project.demoUrl}
+                />
+              </div>
+            ))}
           </div>
         </div>
-      </section> */}
+      </section>
+
+
 
       {/* Experience Section */}
-      <section id="experience" className="lg:py-20 py-16 relative">
+      <section id="experience" className="lg:py-20 py-14 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
           <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
