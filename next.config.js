@@ -13,7 +13,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/aryan_vaish_resume.pdf',
+        source: '/Aryan_Vaish_Resume.pdf',
         headers: [
           {
             key: 'Content-Type',
@@ -25,12 +25,29 @@ const nextConfig = {
           },
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable', 
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
-    ]
-  },
-}
 
-module.exports = nextConfig
+      {
+        source: '/:all*(svg|jpg|jpeg|png|gif|webp|ico|woff2|woff|ttf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
+
+  experimental: {
+    optimizePackageImports: ["lucide-react", "@vercel/analytics", "framer-motion"],
+  },
+
+  reactStrictMode: true,
+  poweredByHeader: false,
+};
+
+module.exports = nextConfig;
