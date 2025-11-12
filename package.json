@@ -1,12 +1,17 @@
 {
-  "name": "Aryan's portfolio",
-  "version": "0.1.0",
+  "name": "aryan-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "description": "Portfolio of Aryan Vaish — Frontend Engineer skilled in React.js, Next.js, and TypeScript. Building fast, modern, and SEO-optimized web experiences.",
+  "author": "Aryan Vaish",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap", 
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
@@ -75,5 +80,16 @@
   },
   "engines": {
     "node": "20.x"
-  }
+  },
+  "keywords": [
+    "Aryan Vaish",
+    "Frontend Developer",
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "Portfolio",
+    "Vercel",
+    "Web Developer Delhi",
+    "SEO"
+  ]
 }

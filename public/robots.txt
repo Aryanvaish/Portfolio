@@ -2,6 +2,10 @@
 User-agent: *
 Allow: /
 
+# GPTBot
+User-agent: GPTBot
+Disallow: /private
+
 # Host
 Host: https://aryanvaish-portfolio.vercel.app
 
