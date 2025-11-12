@@ -49,20 +49,18 @@ export default function Portfolio() {
               Enthusiastic Software Engineer exploring the future of the web through modern frameworks and creative UI solutions.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link
-                href="#projects"
-              >
+              <Link target="_blank" rel="noopener noreferrer" href="/aryan_vaish_resume.pdf?v4" >
                 <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
                   <span className="relative z-10 flex items-center">
-                    View Projects{" "}
+                    Download Resume{" "}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 </Button>
               </Link>
-              <Link href="#contact">
+              <Link href="#projects">
                 <Button className="bg-white text-black hover:bg-gray-200">
-                  Contact Me
+                  View Projects
                 </Button>
               </Link>
             </div>
@@ -150,7 +148,7 @@ export default function Portfolio() {
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <Image
-                  src="/profile-picture.jpg"
+                  src="/profile-picture.jpg?v=2"
                   alt="Aryan Vaish"
                   width={600}
                   height={600}

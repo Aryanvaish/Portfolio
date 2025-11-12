@@ -53,6 +53,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
+  verification: {
+    google: "HgakUICHBnW72ZIo1G7K_1wHpdXpEXhlnmsNosPavRU",
+  },
 };
 
 export default function RootLayout({
@@ -65,7 +68,13 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          href="/fonts/inter-var.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
