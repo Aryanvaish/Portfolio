@@ -49,7 +49,7 @@ export default function Portfolio() {
               Enthusiastic Software Engineer exploring the future of the web through modern frameworks and creative UI solutions.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link target="_blank" rel="noopener noreferrer" href="/aryan_vaish_resume.pdf?v4" >
+              <Link target="_blank" rel="noopener noreferrer" href="/aryan_vaish_resume.pdf?v5" >
                 <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
                   <span className="relative z-10 flex items-center">
                     Download Resume{" "}
@@ -205,7 +205,7 @@ export default function Portfolio() {
 
                 <div className="mt-8">
                   <Link
-                    href="/aryan_vaish_resume.pdf?v4"
+                    href="/aryan_vaish_resume.pdf?v5"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
