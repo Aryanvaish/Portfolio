@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { SiBehance, SiGithub, SiGmail, SiLinkedin, SiX } from "react-icons/si";
+import { SiGithub, SiGmail, SiLinkedin, SiX } from "react-icons/si";
 
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
-import { SkillBadge } from "@/components/skill-badge";
 import { Timeline } from "@/components/timeline";
 import { ContactForm } from "@/components/contact-form";
 import { CreativeHero } from "@/components/creative-hero";
@@ -236,7 +235,7 @@ export default function Portfolio() {
               <h3 className="text-2xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                 Frontend Development
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 place-items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 lg:gap-10 gap-5 place-items-center">
                 {[
                   { name: "React.js", icon: "skills_icons/react.svg" },
                   { name: "Next.js", icon: "skills_icons/nextjs.svg" },
@@ -254,7 +253,7 @@ export default function Portfolio() {
                 ].map((skill) => (
                   <div
                     key={skill.name}
-                    className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden lg:w-52 lg:h-52 w-44 h-44 transition-all duration-500 hover:scale-110"
+                    className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden lg:w-52 lg:h-52 w-40 h-40 transition-all duration-500 hover:scale-110"
                   >
                     {/* Hover glow effect */}
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-300"></div>
@@ -283,7 +282,7 @@ export default function Portfolio() {
               <h3 className="text-2xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                 Tools & Platforms
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 place-items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 lg:gap-10 gap-5 place-items-center">
                 {[
                   { name: "Git", icon: "tools_icons/git.svg" },
                   { name: "GitHub", icon: "tools_icons/github.svg" },
@@ -298,7 +297,7 @@ export default function Portfolio() {
                 ].map((tool) => (
                   <div
                     key={tool.name}
-                    className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden lg:w-52 lg:h-52 w-44 h-44 transition-all duration-500 hover:scale-110"
+                    className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden lg:w-52 lg:h-52 w-40 h-40 transition-all duration-500 hover:scale-110"
                   >
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-300"></div>
                     <div className="relative z-10 flex flex-col items-center">
